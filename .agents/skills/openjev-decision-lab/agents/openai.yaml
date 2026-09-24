@@ -1,0 +1,4 @@
+interface:
+  display_name: "OpenJev Decision Lab"
+  short_description: "Build small typed-decision demos and evaluations"
+  default_prompt: "Use $openjev-decision-lab to turn a labeled dataset into a typed-decision demo and evaluation plan."

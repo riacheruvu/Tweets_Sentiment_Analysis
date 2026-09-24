@@ -41,6 +41,14 @@ python sentiment.py --text "I love how safely the self-driving car handled that 
 
 The result includes the selected label, probability for every label, and OpenJev's confidence score.
 
+For a more interesting “vibe check,” try mixed sentiment and compare the probabilities:
+
+```bash
+python sentiment.py --text "I love the idea of a self-driving car, but I would not trust it on an icy road."
+```
+
+Then change the text to a plain factual observation or an unrelated car comment. The result will vary with the model and endpoint; these examples are for exploration, not benchmark scores. The API key is required for a hosted endpoint. The included path calls once per text and does not store results beyond the CSV you explicitly ask it to write.
+
 ## Analyze a CSV
 
 The CSV must have a header row. Select the text column with `--text-column`:
@@ -80,3 +88,4 @@ The request uses `POST {OPENJEV_BASE_URL}/v1/systemone`, model `openjev-latest`,
 - [Original sentiment analysis repository](https://github.com/riacheruvu/Tweets_Sentiment_Analysis)
 - [OpenJev](https://github.com/razorback16/openjev)
 - [OpenJev API and question types](https://github.com/razorback16/openjev#api)
+- [TypeSafe: Introducing System One Models & Jev](https://typesafe.ai/blog/introducing-system-one-models-and-jev)
