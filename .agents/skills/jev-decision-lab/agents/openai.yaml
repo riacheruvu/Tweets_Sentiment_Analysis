@@ -1,0 +1,4 @@
+interface:
+  display_name: "Jev Decision Lab"
+  short_description: "Build small Jev decision demos and evaluations"
+  default_prompt: "Use $jev-decision-lab to turn a labeled dataset into a typed Jev demo and evaluation plan."
