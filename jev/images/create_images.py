@@ -53,10 +53,13 @@ def comparison() -> None:
     rounded(draw, (112, 275, 260, 325), PALE_BLUE, 18)
     label(draw, (137, 286), "2019", 25, INK, True)
     label(draw, (112, 356), "LEARN FROM LABELED EXAMPLES", 18, MUTED, True)
-    labels = [("Tweet text", 112, PALE_BLUE), ("Word embeddings", 272, PALE_GOLD), ("CNN", 465, PALE_CORAL), ("6 labels", 605, PALE_MINT)]
+    labels = [("Tweet text", 112, PALE_BLUE), ("Word\nembeddings", 272, PALE_GOLD), ("CNN", 465, PALE_CORAL), ("6 labels", 605, PALE_MINT)]
     for name, x, fill in labels:
-        rounded(draw, (x, 462, x + (136 if name == "Word embeddings" else 126), 544), fill, 16)
-        label(draw, (x + 12, 490), name, 17, INK, True)
+        box_w = 136 if name.startswith("Word") else 126
+        rounded(draw, (x, 462, x + box_w, 544), fill, 16)
+        for line_index, line in enumerate(name.split("\n")):
+            line_w = draw.textbbox((0, 0), line, font=font(17, True))[2]
+            label(draw, (x + (box_w - line_w) // 2, 480 + line_index * 22), line, 17, INK, True)
     for x1, x2 in [(238, 272), (412, 465), (591, 605)]:
         draw.line((x1, 503, x2 - 7, 503), fill=MUTED, width=3)
         draw.polygon([(x2 - 8, 497), (x2, 503), (x2 - 8, 509)], fill=MUTED)
