@@ -31,6 +31,7 @@ Turn a concrete decision task into a small example using TypeSafe's Jev model th
 - Distinguish the decision-model/API contribution from a full application. Jev returns decisions; application code still defines thresholds, fallbacks, and actions.
 
 For this repository's historical example, read [`jev/CONCEPTS.md`](../../../jev/CONCEPTS.md) when adapting the tweet task or discussing its original six classes. The original notebook and annotated dataset are at the repository root.
+To see the skill applied to this exact sentiment use case, follow [`jev/SKILL_DEMO.md`](../../../jev/SKILL_DEMO.md). Keep the skill general; keep dataset-specific labels and criteria in the project.
 
 ## Be precise about the model
 

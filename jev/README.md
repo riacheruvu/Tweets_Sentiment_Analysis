@@ -6,7 +6,7 @@ The Python script sends a tweet to TypeSafe's Jev through OpenRouter, asks a six
 
 ## Setup
 
-You’ll need Python 3.10+ and an OpenRouter API key. Jev calls are billed to the account associated with your key.
+You’ll need Python 3.10+ and an OpenRouter API key. If you’re new, [create an OpenRouter account](https://openrouter.ai/), add credits if needed from [Settings → Credits](https://openrouter.ai/settings/credits), then create a key in [Settings → Keys](https://openrouter.ai/settings/keys). A per-key spending limit is a useful guardrail. Jev calls are billed to the account associated with your key; no separate TypeSafe account is needed.
 
 In PowerShell:
 
@@ -43,6 +43,6 @@ The output keeps the input columns and adds `jev_sentiment`, `jev_confidence`, a
 
 The 2019 model learns from labeled examples. This 2026 version asks pretrained Jev to choose among options at request time. That makes for an interesting comparison, but the task setup and assumptions differ. For a fair evaluation, run both on the same human-reviewed examples and compare per-class precision/recall and macro-F1. A confident answer can still be wrong.
 
-For the request walkthrough and experiments, see [`CONCEPTS.md`](CONCEPTS.md) and [`LEARNING_LAB.md`](LEARNING_LAB.md). For a quick example of the reusable agent skill, see [`SKILL_DEMO.md`](SKILL_DEMO.md).
+For the request walkthrough and experiments, see [`CONCEPTS.md`](CONCEPTS.md) and [`LEARNING_LAB.md`](LEARNING_LAB.md). For a quick example of the reusable agent skill, see [`SKILL_DEMO.md`](SKILL_DEMO.md). The [Medium article draft](ARTICLE_DRAFT.md) uses the PNGs in `images/`; the included image script can regenerate them with Pillow, but the sentiment client itself needs no extra packages.
 
 The client calls OpenRouter's Decisions API using `typesafe/jev-1.13`. See [OpenRouter's Jev guide](https://openrouter.ai/blog/tutorials/how-to-use-jev/) for the request shape and current access details.

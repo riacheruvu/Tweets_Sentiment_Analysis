@@ -8,7 +8,7 @@ This repo keeps both versions together. The original notebook, report, slides, a
 
 ## Try the 2026 version
 
-You’ll need Python 3.10+ and an OpenRouter API key. Jev requests are billed to your OpenRouter account. Set the key in the terminal you plan to run the demo from; it only stays set for that terminal session.
+You’ll need Python 3.10+ and an OpenRouter API key. If you’re new to OpenRouter, [create an account](https://openrouter.ai/), add credits if needed on [Settings → Credits](https://openrouter.ai/settings/credits), then create a key from [Settings → Keys](https://openrouter.ai/settings/keys). A per-key spending limit is a useful guardrail. You don’t need a separate TypeSafe account for Jev. Requests are billed to your OpenRouter account. Set the key in the terminal you plan to run the demo from; it only stays set for that terminal session.
 
 In PowerShell on Windows:
 
@@ -41,7 +41,7 @@ The CSV is just for exploring the workflow; it is not evaluation data. Start wit
 
 ## What changed between versions?
 
-The 2019 CNN learns from labeled tweets and word embeddings. The 2026 Jev version sends a tweet as state, asks a typed six-way question, and gets back a choice with probabilities. The labels keep the original broad shape: five sentiment levels plus `not_relevant`.
+The 2019 CNN learns from labeled tweets and word embeddings. The 2026 Jev version sends a tweet as state, asks a typed six-way question, and gets back a choice with probabilities. The labels keep the original broad shape: five sentiment levels plus `not_relevant`. I’ve kept the use case as tweets because that’s what the 2019 dataset and annotations cover. The script accepts text, but applying these labels to other social-media posts would need its own criteria and evaluation.
 
 I find the interface shift interesting. The application defines the choices, Jev returns a structured judgment, and the rest of the code decides what to do with it. That’s different from parsing a paragraph—but a tidy response is not automatically a right response. Confidence is not accuracy, so a fair comparison still needs the same human-reviewed examples and labels for both approaches.
 
@@ -51,7 +51,7 @@ There’s a small project skill at [`.agents/skills/jev-decision-lab/SKILL.md`](
 
 Open this repo in an agent that supports project skills, then try:
 
-> Use `$jev-decision-lab` to classify the three toy app reviews in `jev/SKILL_DEMO.md` as `bug`, `feature_request`, or `praise`. Keep the labels distinct, show the Jev question schema, and suggest a small human-reviewed evaluation plan. Don’t call the API.
+> Use `$jev-decision-lab` to review the sentiment task in `jev/sentiment.py`. Keep the original six labels, suggest a second typed question about safety concerns, and outline a fair human-reviewed evaluation plan. Use the examples in `jev/SKILL_DEMO.md`. Don’t edit files or call the API.
 
 I included a [skill demo prompt and walkthrough](jev/SKILL_DEMO.md) so it’s clear what to ask and what a useful answer should cover.
 
@@ -60,6 +60,8 @@ I included a [skill demo prompt and walkthrough](jev/SKILL_DEMO.md) so it’s cl
 - [`CaseStudyinSentimentAnalysis.ipynb`](CaseStudyinSentimentAnalysis.ipynb) — the 2019 notebook.
 - [`jev/sentiment.py`](jev/sentiment.py) — the small Python client for Jev through OpenRouter.
 - [`jev/LEARNING_LAB.md`](jev/LEARNING_LAB.md) — experiments and comparison ideas.
+- [`jev/ARTICLE_DRAFT.md`](jev/ARTICLE_DRAFT.md) — the Medium draft with image references.
 - [`jev/README.md`](jev/README.md) — setup and CSV instructions.
+- [`jev/images/`](jev/images/) — article-ready diagrams, including a visual of the actual demo response.
 
 The API client uses Python's standard library and OpenRouter's Decisions API with `typesafe/jev-1.13`. For the API shape and current Jev access details, see [OpenRouter's Jev guide](https://openrouter.ai/blog/tutorials/how-to-use-jev/).

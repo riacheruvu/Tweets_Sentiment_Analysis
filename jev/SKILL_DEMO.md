@@ -1,25 +1,24 @@
 # A tiny demo for the Jev Decision Lab skill
 
-The project skill helps an agent design a typed Jev task. This walkthrough is for trying the skill itself; it does not call Jev or use an API key.
+The project skill is intentionally reusable: it helps an agent design a typed Jev task, whether that task is sentiment, routing, scoring, or a yes/no check. This demo applies it to the sentiment project itself. It does not call Jev or use an API key.
 
 ## Try this prompt
 
 Open the repository in an agent that can load project skills and ask:
 
-> Use `$jev-decision-lab` to adapt this project to classify these app reviews as `bug`, `feature_request`, or `praise`. Keep the three labels distinct. Show the Jev question schema, a short Python request sketch, and an evaluation plan for a small human-reviewed sample. Don’t call the API.
+> Use `$jev-decision-lab` to review the sentiment task in `jev/sentiment.py`. Keep the original six labels, check whether the descriptions make mixed opinions hard to classify, and show a small revised Jev question schema plus a second `noul` question for whether the tweet raises a safety concern. Include a fair evaluation plan for human-reviewed tweets. Don’t edit files or call the API.
 
-For example, the toy reviews could be:
+You can use these two examples to focus the discussion:
 
-- “The save button closes the screen but my changes disappear.”
-- “I’d love a dark mode option.”
-- “This is much easier to use than the old app.”
+- “I love the idea of a self-driving car, but I would not trust it on an icy road.”
+- “The prototype completed another 100-mile test on public roads today.”
 
 ## What a useful skill response should include
 
-1. A `choice` question whose criteria define `bug`, `feature_request`, and `praise` clearly.
-2. A state containing the review text, and an instruction that asks for its primary intent.
-3. A note that the schema makes the output structured but does not guarantee a correct label.
-4. An evaluation plan using reviews labeled by a person, with class counts and per-class precision/recall or macro-F1.
-5. A reminder that a live request needs `OPENROUTER_API_KEY` and is billed through OpenRouter.
+1. The same six outcome keys as the project, with distinct explanations tied to the original 1–5 scale and `not_relevant` class.
+2. A `choice` question for overall sentiment and a separate `noul` question for safety concerns.
+3. A request sketch that puts the tweet in `state`, along with a note that the schema structures the answer but does not make it correct.
+4. A human-reviewed holdout plan using the same tweets for the historical CNN and Jev, with per-class precision/recall or macro-F1.
+5. A reminder that confidence is not accuracy and live requests need an OpenRouter key and are billed.
 
-The important part is the design conversation: are the labels distinct enough, is there a missing `other` class, and what evidence would tell us whether the classifier is useful? The skill should surface those decisions before anyone spends money on a larger batch.
+The project is still specifically about tweets on self-driving cars because that’s what the 2019 data and labels cover. The skill stays generic so the same workflow can help with another bounded task later. Calling the model on a different social-media domain would need fresh criteria and evaluation; the current demo does not establish that it generalizes.
