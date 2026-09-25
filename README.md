@@ -4,7 +4,7 @@ In 2019, one of my first deep learning courses had me asking whether I could rec
 
 I recently reopened that work to try a different idea: what changes when the model is asked for a typed decision instead of being trained as a task-specific classifier?
 
-This repo keeps both versions together. The original notebook, report, slides, and dataset are still here. The 2026 version uses TypeSafe's Jev through OpenRouter. I’m treating this as a learning experiment, not a claim that the newer approach is automatically better.
+This repo keeps both versions together. The original notebook and dataset stay at the root; I moved the 2019 report and slides into [`archive/2019/`](archive/2019/) so they’re still easy to find without crowding the project landing page. The 2026 version uses TypeSafe's Jev through OpenRouter. I’m treating this as a learning experiment, not a claim that the newer approach is automatically better.
 
 ## Try the 2026 version
 
@@ -58,9 +58,9 @@ I included a [skill demo prompt and walkthrough](jev/SKILL_DEMO.md) so it’s cl
 ## A few useful places to look
 
 - [`CaseStudyinSentimentAnalysis.ipynb`](CaseStudyinSentimentAnalysis.ipynb) — the 2019 notebook.
+- [`archive/2019/`](archive/2019/) — the original report and presentation slides.
 - [`jev/sentiment.py`](jev/sentiment.py) — the small Python client for Jev through OpenRouter.
 - [`jev/LEARNING_LAB.md`](jev/LEARNING_LAB.md) — experiments and comparison ideas.
-- [`jev/ARTICLE_DRAFT.md`](jev/ARTICLE_DRAFT.md) — the Medium draft with image references.
 - [`jev/README.md`](jev/README.md) — setup and CSV instructions.
 - [`jev/images/`](jev/images/) — article-ready diagrams, including a visual of the actual demo response.
 
